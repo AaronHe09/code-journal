@@ -67,16 +67,8 @@ form {
 }
 
 @media screen and (width >= 768px) {
-  .col-md {
+  .row-md {
     display: flex;
     gap: 20px;
-  }
-
-  .form-image-wrapper {
-    flex-basis: 50%;
-  }
-
-  .input-container-md {
-    flex-basis: 50%;
   }
 }
