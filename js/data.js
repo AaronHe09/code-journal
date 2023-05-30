@@ -29,3 +29,8 @@ $form.addEventListener('submit', function (e) {
   $image.src = 'images/placeholder-image-square.jpg';
   $form.reset();
 });
+
+window.addEventListener('beforeunload', function () {
+  const dataJSON = JSON.stringify(data);
+  this.localStorage.setItem('data', dataJSON);
+});
