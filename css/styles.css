@@ -3,6 +3,7 @@
 
 * {
   margin: 0;
+  font-family: "Proza Libre", serif;
 }
 
 body {
@@ -18,10 +19,6 @@ header h1 {
   color: white;
   font-size: 20px;
   font-family: "Open Sans", sans-serif;
-}
-
-form {
-  font-family: "Proza Libre", serif;
 }
 
 [data-view] h1 {
@@ -64,6 +61,15 @@ form {
   background-color: rgb(86, 43, 128);
   color: white;
   border: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 50px;
 }
 
 @media screen and (width >= 768px) {
