@@ -34,3 +34,8 @@ window.addEventListener('beforeunload', function () {
   const dataJSON = JSON.stringify(data);
   this.localStorage.setItem('data', dataJSON);
 });
+
+if (localStorage.getItem('data') !== null) {
+  const newData = JSON.parse(localStorage.getItem('data'));
+  data = newData;
+}
