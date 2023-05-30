@@ -21,7 +21,7 @@ header h1 {
   margin: 20px 0;
 }
 
-[data-view] img {
+.image {
   width: 100%;
   margin-bottom: 20px;
 }
