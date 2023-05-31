@@ -111,6 +111,11 @@ li {
   border-radius: 5px;
 }
 
+.column-half h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
 @media screen and (width >= 768px) {
   .row-md {
     display: flex;
