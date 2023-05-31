@@ -6,6 +6,7 @@ const $notes = document.querySelector('#notes');
 const $dataViewEntries = document.querySelector('[data-view="entries"]');
 const $noEntries = document.querySelector('.no-entries');
 const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
+const $showEntries = document.querySelector('.show-entries');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -30,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
     $dataViewEntries.appendChild(renderEntry(data.entries[i]));
   }
+});
+
+$showEntries.addEventListener('click', function (e) {
+  e.preventDefault();
+  viewSwap('entries');
 });
 
 function renderEntry(entry) {
@@ -70,7 +76,6 @@ function toggleNoEntries() {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
 function viewSwap(swap) {
   if (swap === 'entries') {
     $dataViewEntries.className = '';

@@ -74,10 +74,22 @@ li {
 
 [data-view="entries"] {
   margin-top: 30px;
+  width: 100%;
 }
 
 .no-entries {
   text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.show-entries {
+  color: white;
+  text-decoration: none;
 }
 
 @media screen and (width >= 768px) {
