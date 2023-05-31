@@ -21,14 +21,16 @@ header h1 {
   font-family: "Open Sans", sans-serif;
 }
 
+.entries-nav {
+  margin-bottom: 20px;
+}
+
 .entries-nav h1 {
   font-size: 30px;
-  margin: 20px 0;
 }
 
 .image {
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .input-wrapper {
