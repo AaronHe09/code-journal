@@ -83,8 +83,6 @@ function renderEntry(entry) {
   return $li;
 }
 
-// only temp disabling so i can commit. will enable it agian
-// eslint-disable-next-line no-unused-vars
 function toggleNoEntries() {
   if ($noEntries.className === 'no-entries') {
     $noEntries.className = 'no-entries hidden';
