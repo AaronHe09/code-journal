@@ -7,6 +7,7 @@ const $dataViewEntries = document.querySelector('[data-view="entries"]');
 const $noEntries = document.querySelector('.no-entries');
 const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
+const $rowEntriesNav = document.querySelector('.entries-nav');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -36,6 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
 $showEntries.addEventListener('click', function (e) {
   e.preventDefault();
   viewSwap('entries');
+});
+
+$rowEntriesNav.addEventListener('click', function (e) {
+  e.preventDefault();
+  viewSwap('no-entries');
 });
 
 function renderEntry(entry) {
