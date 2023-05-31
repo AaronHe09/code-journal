@@ -72,7 +72,7 @@ li {
   margin-bottom: 50px;
 }
 
-[data-view] {
+[data-view="entries"] {
   margin-top: 30px;
 }
 

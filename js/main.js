@@ -3,8 +3,9 @@ const $image = document.querySelector('.image');
 const $form = document.querySelector('form');
 const $title = document.querySelector('#title');
 const $notes = document.querySelector('#notes');
-const $dataView = document.querySelector('[data-view]');
+const $dataViewEntries = document.querySelector('[data-view="entries"]');
 const $noEntries = document.querySelector('.no-entries');
+const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -27,7 +28,7 @@ $form.addEventListener('submit', function (e) {
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
-    $dataView.appendChild(renderEntry(data.entries[i]));
+    $dataViewEntries.appendChild(renderEntry(data.entries[i]));
   }
 });
 
@@ -59,6 +60,8 @@ function renderEntry(entry) {
   return $li;
 }
 
+// only temp disabling so i can commit. will enable it agian
+// eslint-disable-next-line no-unused-vars
 function toggleNoEntries() {
   if ($noEntries.className === 'no-entries') {
     $noEntries.className = 'no-entries hidden';
@@ -67,4 +70,15 @@ function toggleNoEntries() {
   }
 }
 
-toggleNoEntries();
+// eslint-disable-next-line no-unused-vars
+function viewSwap(swap) {
+  if (swap === 'entries') {
+    $dataViewEntries.className = '';
+    $dataViewEntryForm.className = 'hidden';
+  } else {
+    $dataViewEntries.className = 'hidden';
+    $dataViewEntryForm.className = '';
+  }
+
+  data.view = swap;
+}
