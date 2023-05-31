@@ -4,6 +4,7 @@ const $form = document.querySelector('form');
 const $title = document.querySelector('#title');
 const $notes = document.querySelector('#notes');
 const $dataView = document.querySelector('[data-view]');
+const $noEntries = document.querySelector('.no-entries');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -57,3 +58,13 @@ function renderEntry(entry) {
 
   return $li;
 }
+
+function toggleNoEntries() {
+  if ($noEntries.className === 'no-entries') {
+    $noEntries.className = 'no-entries hidden';
+  } else {
+    $noEntries.className = 'no-entries';
+  }
+}
+
+toggleNoEntries();
