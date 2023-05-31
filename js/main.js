@@ -3,6 +3,7 @@ const $image = document.querySelector('.image');
 const $form = document.querySelector('form');
 const $title = document.querySelector('#title');
 const $notes = document.querySelector('#notes');
+const $dataView = document.querySelector('[data-view]');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -24,7 +25,6 @@ $form.addEventListener('submit', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const $dataView = document.querySelector('[data-view]');
   for (let i = 0; i < data.entries.length; i++) {
     $dataView.appendChild(renderEntry(data.entries[i]));
   }
