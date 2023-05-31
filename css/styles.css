@@ -72,6 +72,14 @@ li {
   margin-bottom: 50px;
 }
 
+[data-view] {
+  margin-top: 30px;
+}
+
+.no-entries {
+  text-align: center;
+}
+
 @media screen and (width >= 768px) {
   .row-md {
     display: flex;
