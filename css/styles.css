@@ -21,7 +21,7 @@ header h1 {
   font-family: "Open Sans", sans-serif;
 }
 
-[data-view] h1 {
+.entries-nav h1 {
   font-size: 30px;
   margin: 20px 0;
 }
@@ -74,6 +74,10 @@ li {
 
 [data-view="entries"] {
   margin-top: 30px;
+  width: 100%;
+}
+
+[data-view="entry-form"] {
   width: 100%;
 }
 

@@ -26,11 +26,22 @@ $form.addEventListener('submit', function (e) {
   data.entries.unshift(object);
   $image.src = 'images/placeholder-image-square.jpg';
   $form.reset();
+
+  $dataViewEntries.appendChild(renderEntry(object));
+  viewSwap('entries');
+
+  if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
+    toggleNoEntries();
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
     $dataViewEntries.appendChild(renderEntry(data.entries[i]));
+  }
+  viewSwap(data.view);
+  if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
+    toggleNoEntries();
   }
 });
 
