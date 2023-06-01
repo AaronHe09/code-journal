@@ -54,6 +54,14 @@ $rowEntriesNav.addEventListener('click', function (e) {
   viewSwap('no-entries');
 });
 
+$ul.addEventListener('click', function (e) {
+  const dataEntry = e.target.closest('[data-entry-id]');
+  const id = dataEntry.getAttribute('data-entry-id');
+
+  viewSwap('entry-form');
+  data.editing = data.entries[id - 1];
+});
+
 function renderEntry(entry) {
   const $li = document.createElement('li');
   const $row = document.createElement('div');
