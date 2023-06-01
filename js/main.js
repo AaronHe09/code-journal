@@ -27,7 +27,7 @@ $form.addEventListener('submit', function (e) {
   $image.src = 'images/placeholder-image-square.jpg';
   $form.reset();
 
-  $dataViewEntries.appendChild(renderEntry(object));
+  $dataViewEntries.prepend(renderEntry(object));
   viewSwap('entries');
 
   if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
@@ -46,12 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $showEntries.addEventListener('click', function (e) {
-  e.preventDefault();
   viewSwap('entries');
 });
 
 $rowEntriesNav.addEventListener('click', function (e) {
-  e.preventDefault();
   viewSwap('no-entries');
 });
 
@@ -77,6 +75,7 @@ function renderEntry(entry) {
   $columnHalf2.appendChild($p);
 
   $image.src = entry.photoUrl;
+  $image.alt = entry.title;
   $h1.textContent = entry.title;
   $p.textContent = entry.notes;
 
