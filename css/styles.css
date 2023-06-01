@@ -3,6 +3,7 @@
 
 * {
   margin: 0;
+  font-family: "Proza Libre", serif;
 }
 
 body {
@@ -20,18 +21,16 @@ header h1 {
   font-family: "Open Sans", sans-serif;
 }
 
-form {
-  font-family: "Proza Libre", serif;
+.entries-nav {
+  margin-bottom: 20px;
 }
 
-[data-view] h1 {
+.entries-nav h1 {
   font-size: 30px;
-  margin: 20px 0;
 }
 
 .image {
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .input-wrapper {
@@ -64,6 +63,61 @@ form {
   background-color: rgb(86, 43, 128);
   color: white;
   border: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+[data-view="entries"] {
+  margin-top: 30px;
+  width: 100%;
+}
+
+[data-view="entry-form"] {
+  width: 100%;
+}
+
+[data-view="entry-form"] h1 {
+  margin: 20px 0;
+}
+
+.no-entries {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.show-entries {
+  color: white;
+  text-decoration: none;
+}
+
+.row.entries-nav {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.entries-nav a {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(86, 43, 128);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.column-half h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
 @media screen and (width >= 768px) {
