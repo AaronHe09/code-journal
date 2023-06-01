@@ -56,26 +56,35 @@ $rowEntriesNav.addEventListener('click', function (e) {
 function renderEntry(entry) {
   const $li = document.createElement('li');
   const $row = document.createElement('div');
+  const $row2 = document.createElement('div');
   const $columnHalf1 = document.createElement('div');
   const $columnHalf2 = document.createElement('div');
   const $image = document.createElement('img');
+  const $icon = document.createElement('i');
   const $h1 = document.createElement('h1');
   const $p = document.createElement('p');
 
   $row.className = 'row';
+  $row2.className = 'row';
   $columnHalf1.className = 'column-half';
   $columnHalf2.className = 'column-half';
   $image.className = 'image';
+  $icon.className = 'fa fa-pencil fa-lg';
+  $icon.setAttribute('aria-hidden', 'true');
+  $icon.style = 'color: #4a2163';
 
   $li.appendChild($row);
   $row.appendChild($columnHalf1);
   $row.appendChild($columnHalf2);
   $columnHalf1.appendChild($image);
-  $columnHalf2.appendChild($h1);
+  $columnHalf2.appendChild($row2);
+  $row2.appendChild($h1);
+  $row2.appendChild($icon);
   $columnHalf2.appendChild($p);
 
   $image.src = entry.photoUrl;
   $image.alt = entry.title;
+  $icon.src = 'images/favicon.ico';
   $h1.textContent = entry.title;
   $p.textContent = entry.notes;
 

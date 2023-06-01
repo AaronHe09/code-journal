@@ -117,7 +117,16 @@ li {
 
 .column-half h1 {
   font-size: 30px;
-  margin-bottom: 20px;
+}
+
+li .column-half:last-child .row {
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.fa:hover {
+  cursor: pointer;
 }
 
 @media screen and (width >= 768px) {
