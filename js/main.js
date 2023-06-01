@@ -4,6 +4,7 @@ const $form = document.querySelector('form');
 const $title = document.querySelector('#title');
 const $notes = document.querySelector('#notes');
 const $dataViewEntries = document.querySelector('[data-view="entries"]');
+const $ul = document.querySelector('.entries-list');
 const $noEntries = document.querySelector('.no-entries');
 const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
@@ -27,7 +28,7 @@ $form.addEventListener('submit', function (e) {
   $image.src = 'images/placeholder-image-square.jpg';
   $form.reset();
 
-  $dataViewEntries.prepend(renderEntry(object));
+  $ul.prepend(renderEntry(object));
   viewSwap('entries');
 
   if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
@@ -37,7 +38,7 @@ $form.addEventListener('submit', function (e) {
 
 document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < data.entries.length; i++) {
-    $dataViewEntries.appendChild(renderEntry(data.entries[i]));
+    $ul.appendChild(renderEntry(data.entries[i]));
   }
   viewSwap(data.view);
   if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
@@ -72,6 +73,7 @@ function renderEntry(entry) {
   $icon.className = 'fa fa-pencil fa-lg';
   $icon.setAttribute('aria-hidden', 'true');
   $icon.style = 'color: #4a2163';
+  $li.setAttribute('data-entry-id', entry.entryId);
 
   $li.appendChild($row);
   $row.appendChild($columnHalf1);
