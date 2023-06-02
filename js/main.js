@@ -9,6 +9,7 @@ const $noEntries = document.querySelector('.no-entries');
 const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
 const $rowEntriesNav = document.querySelector('.entries-nav');
+const $formHeading = document.querySelector('.form-heading');
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -56,10 +57,22 @@ $rowEntriesNav.addEventListener('click', function (e) {
 
 $ul.addEventListener('click', function (e) {
   const dataEntry = e.target.closest('[data-entry-id]');
-  const id = dataEntry.getAttribute('data-entry-id');
+  const id = parseInt(dataEntry.getAttribute('data-entry-id'));
 
-  viewSwap('entry-form');
-  data.editing = data.entries[id - 1];
+  if (e.target.nodeName === 'I') {
+    viewSwap('entry-form');
+
+    for (const i in data.entries) {
+      if (data.entries[i].entryId === id) {
+        data.editing = data.entries[i];
+        $title.value = data.editing.title;
+        $photoUrl.value = data.editing.photoUrl;
+        $notes.value = data.editing.notes;
+      }
+    }
+    $formHeading.textContent = 'Edit Entry';
+  }
+
 });
 
 function renderEntry(entry) {
