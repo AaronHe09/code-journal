@@ -35,14 +35,13 @@ $form.addEventListener('submit', function (e) {
     viewSwap('entries');
   } else if (data.editing !== null) {
     const newIndex = data.entries.findIndex(array => array.entryId === data.editing.entryId);
-
     data.editing.title = $title.value;
     data.editing.photoUrl = $photoUrl.value;
     data.editing.notes = $notes.value;
     data.entries[newIndex] = data.editing;
 
+    $ul.insertBefore(renderEntry(data.entries[newIndex]), dataEntry);
     $ul.removeChild(dataEntry);
-    $ul.prepend(renderEntry(data.entries[newIndex]));
     $formHeading.textContent = 'New Entry';
     data.editing = null;
     viewSwap('entries');
