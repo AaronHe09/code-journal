@@ -24,13 +24,15 @@ $form.addEventListener('submit', function (e) {
     entryId: data.nextEntryId
   };
 
-  data.nextEntryId += 1;
-  data.entries.unshift(object);
-  $image.src = 'images/placeholder-image-square.jpg';
-  $form.reset();
+  if (data.editing === null) {
+    data.nextEntryId += 1;
+    data.entries.unshift(object);
+    $image.src = 'images/placeholder-image-square.jpg';
+    $form.reset();
 
-  $ul.prepend(renderEntry(object));
-  viewSwap('entries');
+    $ul.prepend(renderEntry(object));
+    viewSwap('entries');
+  }
 
   if (data.entries.length > 0 && $noEntries.className !== 'no-entries hidden') {
     toggleNoEntries();
