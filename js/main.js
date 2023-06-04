@@ -10,7 +10,7 @@ const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
 const $rowEntriesNav = document.querySelector('.entries-nav');
 const $formHeading = document.querySelector('.form-heading');
-var dataEntry;
+var closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -40,8 +40,8 @@ $form.addEventListener('submit', function (e) {
     data.editing.notes = $notes.value;
     data.entries[newIndex] = data.editing;
 
-    $ul.insertBefore(renderEntry(data.entries[newIndex]), dataEntry);
-    $ul.removeChild(dataEntry);
+    $ul.insertBefore(renderEntry(data.entries[newIndex]), closestElement);
+    $ul.removeChild(closestElement);
     $formHeading.textContent = 'New Entry';
     data.editing = null;
     viewSwap('entries');
@@ -71,8 +71,8 @@ $rowEntriesNav.addEventListener('click', function (e) {
 });
 
 $ul.addEventListener('click', function (e) {
-  dataEntry = e.target.closest('[data-entry-id]');
-  const id = parseInt(dataEntry.getAttribute('data-entry-id'));
+  closestElement = e.target.closest('[data-entry-id]');
+  const id = parseInt(closestElement.getAttribute('data-entry-id'));
 
   if (e.target.nodeName === 'I') {
     viewSwap('entry-form');
