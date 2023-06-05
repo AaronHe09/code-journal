@@ -10,7 +10,7 @@ const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
 const $rowEntriesNav = document.querySelector('.entries-nav');
 const $formHeading = document.querySelector('.form-heading');
-var closestElement;
+let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
   $image.src = e.target.value;
@@ -40,8 +40,7 @@ $form.addEventListener('submit', function (e) {
     data.editing.notes = $notes.value;
     data.entries[newIndex] = data.editing;
 
-    $ul.insertBefore(renderEntry(data.entries[newIndex]), closestElement);
-    $ul.removeChild(closestElement);
+    closestElement.replaceWith(renderEntry(data.entries[newIndex]));
     $formHeading.textContent = 'New Entry';
     data.editing = null;
     viewSwap('entries');
