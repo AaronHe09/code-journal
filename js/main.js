@@ -10,6 +10,8 @@ const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
 const $rowEntriesNav = document.querySelector('.entries-nav');
 const $formHeading = document.querySelector('.form-heading');
+const $deleteButton = document.querySelector('.delete-button');
+const $buttonWrapper = document.querySelector('.button-wrapper');
 let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
@@ -62,11 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $showEntries.addEventListener('click', function (e) {
+  e.preventDefault();
   viewSwap('entries');
 });
 
 $rowEntriesNav.addEventListener('click', function (e) {
+  e.preventDefault();
   viewSwap('no-entries');
+  $deleteButton.classList.add('hidden');
 });
 
 $ul.addEventListener('click', function (e) {
@@ -75,6 +80,8 @@ $ul.addEventListener('click', function (e) {
 
   if (e.target.nodeName === 'I') {
     viewSwap('entry-form');
+    $deleteButton.classList.remove('hidden');
+    $buttonWrapper.style.justifyContent = 'space-between';
 
     for (const i in data.entries) {
       if (data.entries[i].entryId === id) {

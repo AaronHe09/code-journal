@@ -57,7 +57,7 @@ header h1 {
   justify-content: end;
 }
 
-.button-wrapper button {
+.save-button {
   padding: 6px 15px;
   border-radius: 2px;
   background-color: rgb(86, 43, 128);
@@ -127,6 +127,14 @@ li .column-half:last-child .row {
 
 .fa:hover {
   cursor: pointer;
+}
+
+.delete-button {
+  background-color: rgb(240, 240, 240);
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 15px;
 }
 
 @media screen and (width >= 768px) {
