@@ -121,6 +121,9 @@ $confirmButton.addEventListener('click', function (e) {
   if (allLI.length === 0) {
     toggleNoEntries();
   }
+
+  $deleteModalContainer.classList.add('hidden');
+  viewSwap('entries');
 });
 
 function renderEntry(entry) {
