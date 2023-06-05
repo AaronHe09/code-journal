@@ -13,6 +13,7 @@ const $formHeading = document.querySelector('.form-heading');
 const $deleteButton = document.querySelector('.delete-button');
 const $buttonWrapper = document.querySelector('.button-wrapper');
 const $deleteModalContainer = document.querySelector('.delete-modal-container');
+const $cancelButton = document.querySelector('.cancel-button');
 let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
@@ -100,6 +101,11 @@ $ul.addEventListener('click', function (e) {
 $deleteButton.addEventListener('click', function (e) {
   e.preventDefault();
   $deleteModalContainer.classList.remove('hidden');
+});
+
+$cancelButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  $deleteModalContainer.classList.add('hidden');
 });
 
 function renderEntry(entry) {
