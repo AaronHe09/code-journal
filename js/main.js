@@ -14,6 +14,7 @@ const $deleteButton = document.querySelector('.delete-button');
 const $buttonWrapper = document.querySelector('.button-wrapper');
 const $deleteModalContainer = document.querySelector('.delete-modal-container');
 const $cancelButton = document.querySelector('.cancel-button');
+const $confirmButton = document.querySelector('.confirm-button');
 let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
@@ -106,6 +107,12 @@ $deleteButton.addEventListener('click', function (e) {
 $cancelButton.addEventListener('click', function (e) {
   e.preventDefault();
   $deleteModalContainer.classList.add('hidden');
+});
+
+$confirmButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  const entryIndex = data.entries.findIndex(entry => entry.entryId === data.editing.entryId);
+  data.entries.splice(entryIndex, 1);
 });
 
 function renderEntry(entry) {
