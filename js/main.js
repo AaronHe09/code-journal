@@ -12,6 +12,7 @@ const $rowEntriesNav = document.querySelector('.entries-nav');
 const $formHeading = document.querySelector('.form-heading');
 const $deleteButton = document.querySelector('.delete-button');
 const $buttonWrapper = document.querySelector('.button-wrapper');
+const $deleteModalContainer = document.querySelector('.delete-modal-container');
 let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
@@ -94,6 +95,11 @@ $ul.addEventListener('click', function (e) {
     $formHeading.textContent = 'Edit Entry';
   }
 
+});
+
+$deleteButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  $deleteModalContainer.classList.remove('hidden');
 });
 
 function renderEntry(entry) {
