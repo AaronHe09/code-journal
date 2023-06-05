@@ -112,7 +112,9 @@ $cancelButton.addEventListener('click', function (e) {
 $confirmButton.addEventListener('click', function (e) {
   e.preventDefault();
   const entryIndex = data.entries.findIndex(entry => entry.entryId === data.editing.entryId);
+
   data.entries.splice(entryIndex, 1);
+  $ul.removeChild(closestElement);
 });
 
 function renderEntry(entry) {
