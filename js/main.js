@@ -115,6 +115,12 @@ $confirmButton.addEventListener('click', function (e) {
 
   data.entries.splice(entryIndex, 1);
   $ul.removeChild(closestElement);
+
+  const allLI = document.querySelectorAll('[data-entry-id]');
+
+  if (allLI.length === 0) {
+    toggleNoEntries();
+  }
 });
 
 function renderEntry(entry) {
