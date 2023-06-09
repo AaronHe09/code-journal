@@ -10,6 +10,11 @@ const $dataViewEntryForm = document.querySelector('[data-view="entry-form"]');
 const $showEntries = document.querySelector('.show-entries');
 const $rowEntriesNav = document.querySelector('.entries-nav');
 const $formHeading = document.querySelector('.form-heading');
+const $deleteButton = document.querySelector('.delete-button');
+const $buttonWrapper = document.querySelector('.button-wrapper');
+const $deleteModalContainer = document.querySelector('.delete-modal-container');
+const $cancelButton = document.querySelector('.cancel-button');
+const $confirmButton = document.querySelector('.confirm-button');
 let closestElement;
 
 $photoUrl.addEventListener('input', function (e) {
@@ -63,10 +68,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $showEntries.addEventListener('click', function (e) {
   viewSwap('entries');
+  data.editing = null;
 });
 
 $rowEntriesNav.addEventListener('click', function (e) {
-  viewSwap('no-entries');
+  if (e.target.nodeName === 'A') {
+    viewSwap('no-entries');
+    $deleteButton.classList.add('hidden');
+    $rowEntriesNav.classList.remove('space-between');
+  }
 });
 
 $ul.addEventListener('click', function (e) {
@@ -75,6 +85,8 @@ $ul.addEventListener('click', function (e) {
 
   if (e.target.nodeName === 'I') {
     viewSwap('entry-form');
+    $deleteButton.classList.remove('hidden');
+    $buttonWrapper.classList.add('space-between');
 
     for (const i in data.entries) {
       if (data.entries[i].entryId === id) {
@@ -87,6 +99,29 @@ $ul.addEventListener('click', function (e) {
     $formHeading.textContent = 'Edit Entry';
   }
 
+});
+
+$deleteButton.addEventListener('click', function (e) {
+  $deleteModalContainer.classList.remove('hidden');
+});
+
+$cancelButton.addEventListener('click', function (e) {
+  $deleteModalContainer.classList.add('hidden');
+});
+
+$confirmButton.addEventListener('click', function (e) {
+  const entryIndex = data.entries.findIndex(entry => entry.entryId === data.editing.entryId);
+  data.entries.splice(entryIndex, 1);
+  $ul.removeChild(closestElement);
+
+  const allLI = document.querySelectorAll('[data-entry-id]');
+
+  if (allLI.length === 0) {
+    toggleNoEntries();
+  }
+
+  $deleteModalContainer.classList.add('hidden');
+  viewSwap('entries');
 });
 
 function renderEntry(entry) {
