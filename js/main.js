@@ -67,14 +67,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $showEntries.addEventListener('click', function (e) {
-  e.preventDefault();
   viewSwap('entries');
+  data.editing = null;
 });
 
 $rowEntriesNav.addEventListener('click', function (e) {
-  e.preventDefault();
-  viewSwap('no-entries');
-  $deleteButton.classList.add('hidden');
+  if (e.target.nodeName === 'A') {
+    viewSwap('no-entries');
+    $deleteButton.classList.add('hidden');
+    $rowEntriesNav.classList.remove('space-between');
+  }
 });
 
 $ul.addEventListener('click', function (e) {
@@ -84,7 +86,7 @@ $ul.addEventListener('click', function (e) {
   if (e.target.nodeName === 'I') {
     viewSwap('entry-form');
     $deleteButton.classList.remove('hidden');
-    $buttonWrapper.style.justifyContent = 'space-between';
+    $buttonWrapper.classList.add('space-between');
 
     for (const i in data.entries) {
       if (data.entries[i].entryId === id) {
@@ -100,19 +102,15 @@ $ul.addEventListener('click', function (e) {
 });
 
 $deleteButton.addEventListener('click', function (e) {
-  e.preventDefault();
   $deleteModalContainer.classList.remove('hidden');
 });
 
 $cancelButton.addEventListener('click', function (e) {
-  e.preventDefault();
   $deleteModalContainer.classList.add('hidden');
 });
 
 $confirmButton.addEventListener('click', function (e) {
-  e.preventDefault();
   const entryIndex = data.entries.findIndex(entry => entry.entryId === data.editing.entryId);
-
   data.entries.splice(entryIndex, 1);
   $ul.removeChild(closestElement);
 
